@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-color: #0F044C;
+    --secondary-color: #141E61;
+    --third-color: #787A91;
+    --fourth-color: #EEEEEE;
+    --fifth-color: #435998;
+}
+
+/* Navbar */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('../image/bg-pattern.png');
+}
+
+nav.navbar {
+    background-color: var(--fourth-color) !important;
+}
+
+span.title-brand {
+    color: var(--fifth-color);
+    padding: 0 14px;
+    font-weight: 600;
+}
+
+.nav-link {
+    color: var(--fifth-color) !important;
+    font-weight: 500;
+    margin-left: 20px !important;
+}
+
+/* Akhir Navbar */
+
+/* Content */
+
+.container.login {
+    margin-top: 80px;
+}
+
+.login-form {
+    padding: 40px;
+    border-radius: .5rem;
+    background-color: var(--fourth-color);
+    box-shadow: 15px -15px 0px 0px var(--fifth-color),
+    15px -15px 0px 5px var(--fourth-color);
+}
+
+.login-title {
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: var(--fifth-color) !important;
+    border: 1px solid var(--fifth-color) !important;
+}
+
+.container-fluid.about {
+    margin-top: 120px;
+    background-color: var(--fourth-color);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.content-about {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+/* Akhir Konten */
