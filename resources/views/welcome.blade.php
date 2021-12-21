@@ -50,11 +50,11 @@
                         <form action="/login" method="post">
                             @csrf
                             <div class="form-floating mb-3">
-                                <input type="text" name="username" class="form-control" id="floatingInput">
+                                <input type="text" name="username" class="form-control" id="floatingInput" autocomplete="off">
                                 <label for="floatingInput">Username</label>
                             </div>
                             <div class="form-floating">
-                                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <input type="password" name="password" class="form-control" id="floatingPassword">
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <button class="btn btn-primary mt-3" type="submit"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Masuk</button>

@@ -14,10 +14,25 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)) {
+        if(Auth::guard('admins')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('dashboard');
+        } else if(Auth::guard('students')->attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard');
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
