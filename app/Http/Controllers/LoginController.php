@@ -17,22 +17,42 @@ class LoginController extends Controller
         if(Auth::guard('admins')->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard');
+            return redirect('dashboard');
+
         } else if(Auth::guard('students')->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard');
+            return redirect('dashboard');
+
+        } else {
+
+            return redirect('/')->with('loginFailed', 'Username atau password salah');
+
         }
     }
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        if(Auth::guard('admins')->check()) {
 
-        $request->session()->invalidate();
+            Auth::guard('admins')->logout();
 
-        $request->session()->regenerateToken();
+            $request->session()->invalidate();
 
-        return redirect('/');
+            $request->session()->regenerateToken();
+    
+            return redirect('/');
+
+        } else if(Auth::guard('students')->check()) {
+
+            Auth::guard('students')->logout();
+
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
+    
+            return redirect('/');
+
+        }
     }
 }

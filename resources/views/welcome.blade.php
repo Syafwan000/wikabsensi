@@ -47,15 +47,31 @@
                     <div class="container input-form">
                         <h2 class="login-title">Selamat Datang di WikAbsensi</h2>
                         <p>Silahkan masuk untuk melakukan absensi</p>
+                        @if(session()->has('loginFailed'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fas fa-times-circle"></i>&nbsp;&nbsp;{{ session('loginFailed') }}
+                                <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
                         <form action="/login" method="post">
                             @csrf
                             <div class="form-floating mb-3">
-                                <input type="text" name="username" class="form-control" id="floatingInput" autocomplete="off">
+                                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="floatingInput" value="{{ old('username') }}" autocomplete="off">
                                 <label for="floatingInput">Username</label>
+                                @error('username')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-floating">
-                                <input type="password" name="password" class="form-control" id="floatingPassword">
+                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="floatingPassword">
                                 <label for="floatingPassword">Password</label>
+                                @error('password')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <button class="btn btn-primary mt-3" type="submit"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Masuk</button>
                         </form>

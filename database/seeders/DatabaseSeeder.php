@@ -19,5 +19,11 @@ class DatabaseSeeder extends Seeder
 
         Admin::factory(5)->create();
         Student::factory(5)->create();
+
+        Admin::create([
+            'nama' => 'Muhammad Syafwan Ardiansyah',
+            'username' => 'syafwan000',
+            'password' => bcrypt('12345')
+        ]);
     }
 }

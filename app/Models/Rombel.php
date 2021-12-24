@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rombel extends Model
 {
     use HasFactory;
+
+    protected $table = 'rombels';
+    protected $fillable = ['rombel'];
 }
