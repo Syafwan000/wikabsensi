@@ -52,11 +52,11 @@ class RegisterStudentController extends Controller
     public function store(Request $request)
     {
         $validateSiswa = $request->validate([
-            'nis' => 'required|max:8',
+            'nis' => 'required|max:8|unique:students,nis',
             'nama' => 'required',
             'rombel' => 'required',
             'rayon' => 'required',
-            'username' => 'required',
+            'username' => 'required|unique:students,username|unique:admins,username',
             'password' => 'required'
         ]);
 
@@ -84,11 +84,14 @@ class RegisterStudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit($id)
     {
         Carbon::setLocale('id');
 
+        $students = Student::where('id', $id)->get();
+
         return view('dashboard.admin.student.edit', [
+            'students' => $students,
             'title' => 'Dashboard | Registrasi Siswa',
             'date' => Carbon::now()->isoFormat('dddd, D MMMM Y'),
             'rombels' => Rombel::all(),
@@ -103,9 +106,23 @@ class RegisterStudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, $id)
     {
-        //
+        $validateSiswa = $request->validate([
+            'nis' => 'required',
+            'nama' => 'required',
+            'rombel' => 'required',
+            'rayon' => 'required',
+            'username' => 'required'
+        ]);
+        
+        if($request['new_password']) {
+            $validateSiswa['password'] = bcrypt($request['new_password']);
+        }
+
+        Student::where('id', $id)->update($validateSiswa);
+
+        return redirect('/dashboard/admin/register-siswa')->with('success', 'Berhasil merubah siswa');
     }
 
     /**

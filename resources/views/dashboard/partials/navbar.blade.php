@@ -11,7 +11,11 @@
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
               @if(Auth::guard('admins')->check())
-                Admin
+                @if(Auth::guard('admins')->user()->isSuperAdmin == true)
+                  Super Admin
+                @else
+                  Admin
+                @endif
               @elseif(Auth::guard('students')->check())
                 @if(Request::is('dashboard/rombel'))
                   {{ Auth::guard('students')->user()->rombel }} | Siswa

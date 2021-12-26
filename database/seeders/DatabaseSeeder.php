@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        Admin::factory(5)->create();
-        Student::factory(5)->create();
+        // Admin::factory(5)->create();
+        // Student::factory(5)->create();
 
         Admin::create([
             'nama' => 'Muhammad Syafwan Ardiansyah',

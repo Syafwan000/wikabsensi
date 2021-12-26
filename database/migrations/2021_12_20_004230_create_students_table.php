@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('nama');
             $table->string('rombel');
             $table->string('rayon');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('password');
             $table->timestamps();
         });

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsenAdminController;
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
@@ -39,6 +40,7 @@ Route::resource('/dashboard/admin/rombel', RombelAdminController::class)->middle
 Route::resource('/dashboard/admin/rayon', RayonAdminController::class)->middleware('auth:admins');
 Route::resource('/dashboard/admin/register-siswa', RegisterStudentController::class)->middleware('auth:admins');
 Route::resource('/dashboard/admin/register-admin', RegisterAdminController::class)->middleware('auth:admins');
+Route::get('/dashboard/absen', [AbsenAdminController::class, 'index'])->middleware('auth:admins');
 
 // Students
 Route::get('/dashboard/rombel', [RombelController::class, 'index']);

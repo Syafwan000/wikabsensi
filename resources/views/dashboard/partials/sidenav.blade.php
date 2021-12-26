@@ -32,6 +32,14 @@
             </span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/absen') ? 'active' : '' }}" href="/dashboard/absen">
+            <span class="shape-icon">
+              <i class="fas fa-clipboard"></i>
+            </span>
+            <span class="nav-link-text ms-1">Absen</span>
+          </a>
+        </li>
 
         @if(Auth::guard('students')->check())
 
