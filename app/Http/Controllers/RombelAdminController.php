@@ -13,14 +13,20 @@ class RombelAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         Carbon::setLocale('id');
+
+        $rombels = Rombel::latest()->paginate(5);
+
+        if($request['pencarian_rombel']) {
+            $rombels = Rombel::where('rombel', 'like', '%' . $request['pencarian_rombel'] . '%')->paginate(5)->withQueryString();
+        }
 
         return view('dashboard.admin.rombelAdmin', [
             'title' => 'Dashboard | Rombel (Admin)',
             'date' => Carbon::now()->isoFormat('dddd, D MMMM Y'),
-            'rombels' => Rombel::latest()->paginate(5)
+            'rombels' => $rombels
         ]);
     }
 

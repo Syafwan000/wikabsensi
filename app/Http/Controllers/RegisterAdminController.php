@@ -13,14 +13,21 @@ class RegisterAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         Carbon::setLocale('id');
+
+        $admins = Admin::latest()->paginate(5);
+
+        if($request['pencarian_admin']) {
+            $admins = Admin::where('nama', 'like', '%' . $request['pencarian_admin'] . '%')
+                            ->orWhere('username', 'like', '%' . $request['pencarian_admin'] . '%')->paginate(5)->withQueryString();
+        }
 
         return view('dashboard.admin.registerAdmin', [
             'title' => 'Dashboard | Registrasi Admin',
             'date' => Carbon::now()->isoFormat('dddd, D MMMM Y'),
-            'admins' => Admin::latest()->paginate(5)
+            'admins' => $admins
         ]);
     }
 

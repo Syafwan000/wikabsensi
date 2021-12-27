@@ -15,14 +15,24 @@ class RegisterStudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         Carbon::setLocale('id');
+
+        $students = Student::latest()->paginate(5);
+
+        if($request['pencarian_siswa']) {
+            $students = Student::where('nis', 'like', '%' . $request['pencarian_siswa'] . '%')
+                               ->orWhere('nama', 'like', '%' . $request['pencarian_siswa'] . '%')
+                               ->orWhere('username', 'like', '%' . $request['pencarian_siswa'] . '%')
+                               ->orWhere('rombel', 'like', '%' . $request['pencarian_siswa'] . '%')
+                               ->orWhere('rayon', 'like', '%' . $request['pencarian_siswa'] . '%')->paginate(5)->withQueryString();
+        }
 
         return view('dashboard.admin.registerStudent', [
             'title' => 'Dashboard | Registrasi Siswa',
             'date' => Carbon::now()->isoFormat('dddd, D MMMM Y'),
-            'students' => Student::latest()->paginate(5)
+            'students' => $students
         ]);
     }
 

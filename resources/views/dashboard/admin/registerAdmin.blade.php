@@ -6,6 +6,12 @@
 
 <div class="container mt-3">
   <a href="/dashboard/admin/register-admin/create" class="btn bg-gradient-success mb-4">Buat Akun (Admin)</a>
+  <form action="/dashboard/admin/register-admin">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" name="pencarian_admin" placeholder="Cari admin" autocomplete="off">
+      <button type="submit" class="btn bg-gradient-primary mb-0">Cari</button>
+    </div>
+  </form>
   @if(session()->has('success'))
     <div class="alert alert-success font-weight-bold  text-white " role="alert">
       {{ session('success') }}
@@ -16,6 +22,7 @@
           <table class="table align-items-center mb-0">
             <thead>
               <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">No</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Nama</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Username</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Role</th>
@@ -23,8 +30,11 @@
               </tr>
             </thead>
             <tbody>
-            @foreach ($admins as $admin)                    
+            @foreach ($admins as $key => $admin)                    
               <tr>
+                <td>
+                  <p class="text-xs font-weight-bold mb-0 ps-2">{{ $admins->firstItem() + $key }}</p>
+                </td>
                 <td>
                     <p class="text-xs font-weight-bold mb-0 ps-2">{{ $admin->nama }}</p>
                 </td>

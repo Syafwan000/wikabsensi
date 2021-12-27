@@ -6,6 +6,12 @@
 
 <div class="container mt-3">
     <a href="/dashboard/admin/rayon/create" class="btn bg-gradient-success mb-4">Buat Rayon</a>
+    <form action="/dashboard/admin/rayon">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="pencarian_rayon" placeholder="Cari rayon" autocomplete="off">
+        <button type="submit" class="btn bg-gradient-primary mb-0">Cari</button>
+      </div>
+    </form>
     @if(session()->has('success'))
       <div class="alert alert-success font-weight-bold  text-white " role="alert">
         {{ session('success') }}
@@ -21,10 +27,10 @@
                 </tr>
               </thead>
               <tbody>
-              @foreach ($rayons as $rayon)
+              @foreach ($rayons as $key => $rayon)
                 <tr>
                   <td>
-                    <p class="text-xs font-weight-bold mb-0 ps-2">{{ $rayon->rayon }}</p>
+                    <p class="text-xs font-weight-bold mb-0 ps-2">{{ $rayons->firstItem() + $key }}</p>
                   </td>
                   <td>
                     <p class="text-xs font-weight-bold mb-0 ps-2">{{ $rayon->pembimbing_rayon }}</p>

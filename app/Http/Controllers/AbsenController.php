@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Absen;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class AbsenController extends Controller
@@ -22,7 +21,7 @@ class AbsenController extends Controller
     {
         $request['jam_kepulangan'] = Carbon::now()->timezone('Asia/Jakarta')->toTimeString();
 
-        Absen::where('nis', '=', auth('students')->user()->nis)->update($request->all());
+        Absen::where('nis', auth('students')->user()->nis)->update($request->all());
 
         return redirect('/dashboard')->with('absenHadir', 'Terimakasih Sudah Mengisi Absensi');
     }

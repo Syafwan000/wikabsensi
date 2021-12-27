@@ -13,14 +13,21 @@ class RayonAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         Carbon::setLocale('id');
+
+        $rayons = Rayon::latest()->paginate(5);
+
+        if($request['pencarian_rayon']) {
+            $rayons = Rayon::where('rayon', 'like', '%' . $request['pencarian_rayon'] . '%')
+                           ->orWhere('pembimbing_rayon', 'like', '%' . $request['pencarian_rayon'] . '%')->paginate(5)->withQueryString();
+        }
 
         return view('dashboard.admin.rayonAdmin', [
             'title' => 'Dashboard | Rayon (Admin)',
             'date' => Carbon::now()->isoFormat('dddd, D MMMM Y'),
-            'rayons' => Rayon::latest()->paginate(5)
+            'rayons' => $rayons
         ]);
     }
 

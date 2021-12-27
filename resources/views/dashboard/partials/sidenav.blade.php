@@ -32,17 +32,14 @@
             </span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/absen') ? 'active' : '' }}" href="/dashboard/absen">
-            <span class="shape-icon">
-              <i class="fas fa-clipboard"></i>
-            </span>
-            <span class="nav-link-text ms-1">Absen</span>
-          </a>
-        </li>
 
         @if(Auth::guard('students')->check())
 
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">
+            Rombel/Rayon
+          </h6>
+        </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/rombel') ? 'active' : '' }}" href="/dashboard/rombel">
             <span class="shape-icon">
@@ -88,12 +85,29 @@
               <span class="shape-icon">
                 <i class="fas fa-clipboard-list"></i>
               </span>
-              <span class="nav-link-text ms-1">Registrasi User</span>
+              <span class="nav-link-text ms-1">
+                Registrasi 
+                {{ Request::is('dashboard/admin/register-siswa*') ? 'Siswa' : '' }}
+                {{ Request::is('dashboard/admin/register-admin*') ? 'Admin' : '' }}
+              </span>
             </a>
           </li>
 
         @endif
           
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">
+            Profile
+          </h6>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/profile*') ? 'active' : '' }}" href="/dashboard/profile">
+            <span class="shape-icon">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="nav-link-text ms-1">Profile</span>
+          </a>
+        </li>
         <li class="nav-item logout-cursor">
           <a data-bs-toggle="modal" data-bs-target="#logoutModal" class="nav-link">
             <span class="shape-icon-logout">

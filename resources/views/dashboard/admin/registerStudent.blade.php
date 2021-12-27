@@ -6,6 +6,12 @@
 
 <div class="container mt-3">
     <a href="/dashboard/admin/register-siswa/create" class="btn bg-gradient-success mb-4">Buat Akun (Siswa)</a>
+    <form action="/dashboard/admin/register-siswa">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="pencarian_siswa" placeholder="Cari siswa" autocomplete="off">
+        <button type="submit" class="btn bg-gradient-primary mb-0">Cari</button>
+      </div>
+    </form>
     @if(session()->has('success'))
       <div class="alert alert-success font-weight-bold  text-white " role="alert">
         {{ session('success') }}
@@ -25,10 +31,10 @@
                 </tr>
               </thead>
               <tbody>
-              @foreach ($students as $student)                    
+              @foreach ($students as $key => $student)                    
                 <tr>
                   <td>
-                    <p class="text-xs font-weight-bold mb-0 ps-2">{{ $student->nis }}</p>
+                    <p class="text-xs font-weight-bold mb-0 ps-2">{{ $students->firstItem() + $key }}</p>
                   </td>
                   <td>
                     <p class="text-xs font-weight-bold mb-0 ps-2">{{ $student->nama }}</p>
