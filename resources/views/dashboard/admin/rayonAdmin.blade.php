@@ -8,7 +8,7 @@
     <a href="/dashboard/admin/rayon/create" class="btn bg-gradient-success mb-4">Buat Rayon</a>
     <form action="/dashboard/admin/rayon">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" name="pencarian_rayon" placeholder="Cari rayon" autocomplete="off">
+        <input type="text" class="form-control" name="pencarian_rayon" placeholder="Cari Rayon" autocomplete="off">
         <button type="submit" class="btn bg-gradient-primary mb-0">Cari</button>
       </div>
     </form>

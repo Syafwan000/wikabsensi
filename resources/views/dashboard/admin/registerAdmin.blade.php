@@ -8,7 +8,7 @@
   <a href="/dashboard/admin/register-admin/create" class="btn bg-gradient-success mb-4">Buat Akun (Admin)</a>
   <form action="/dashboard/admin/register-admin">
     <div class="input-group mb-3">
-      <input type="text" class="form-control" name="pencarian_admin" placeholder="Cari admin" autocomplete="off">
+      <input type="text" class="form-control" name="pencarian_admin" placeholder="Cari Admin" autocomplete="off">
       <button type="submit" class="btn bg-gradient-primary mb-0">Cari</button>
     </div>
   </form>

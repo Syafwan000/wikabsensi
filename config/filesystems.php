@@ -35,11 +35,9 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'custom' => [
+        'public' => [
             'driver' => 'local',
-            'root' => 'image',
-            'url' => env('APP_URL').'/public',
-            'visibility' => 'public',
+            'root' => public_path(),
         ],
 
         's3' => [

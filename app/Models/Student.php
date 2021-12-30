@@ -12,5 +12,5 @@ class Student extends Authenticatable
 
     protected $table = 'students';
     protected $guard = 'students';
-    protected $fillable = ['nis', 'nama', 'rombel', 'rayon', 'username', 'password'];
+    protected $fillable = ['nis', 'nama', 'rombel', 'rayon', 'image', 'username', 'password'];
 }

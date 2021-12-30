@@ -8,7 +8,7 @@
     <a href="/dashboard/admin/register-siswa/create" class="btn bg-gradient-success mb-4">Buat Akun (Siswa)</a>
     <form action="/dashboard/admin/register-siswa">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" name="pencarian_siswa" placeholder="Cari siswa" autocomplete="off">
+        <input type="text" class="form-control" name="pencarian_siswa" placeholder="Cari Siswa" autocomplete="off">
         <button type="submit" class="btn bg-gradient-primary mb-0">Cari</button>
       </div>
     </form>

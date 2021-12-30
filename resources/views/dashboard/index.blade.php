@@ -10,7 +10,19 @@
       <div class="row gx-4">
         <div class="col-auto">
           <div class="avatar avatar-xl position-relative">
-            <img src="{{ asset('profile/default.png') }}" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+            @if(Auth::guard('admins')->check())
+              @if(Auth::guard('admins')->user()->image)
+                <img src="{{ asset(Auth::guard('admins')->user()->image) }}" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              @else
+                <img src="{{ asset('profile/default.png') }}" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              @endif
+            @elseif(Auth::guard('students')->check())
+              @if(Auth::guard('students')->user()->image)
+                <img src="{{ asset(Auth::guard('students')->user()->image) }}" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              @else
+                <img src="{{ asset('profile/default.png') }}" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              @endif
+            @endif
           </div>
         </div>
         <div class="col-auto my-auto">

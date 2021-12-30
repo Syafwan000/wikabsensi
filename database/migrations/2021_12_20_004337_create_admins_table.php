@@ -18,6 +18,7 @@ class CreateAdminsTable extends Migration
             $table->string('nama');
             $table->string('username')->unique();
             $table->string('password');
+            $table->string('image')->nullable();
             $table->boolean('isSuperAdmin')->default(false);
             $table->timestamps();
         });
