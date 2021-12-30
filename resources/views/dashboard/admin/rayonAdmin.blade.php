@@ -22,6 +22,7 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">No</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Rayon</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Pembimbing Rayon</th>
                 </tr>
@@ -31,6 +32,9 @@
                 <tr>
                   <td>
                     <p class="text-xs font-weight-bold mb-0 ps-2">{{ $rayons->firstItem() + $key }}</p>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0 ps-2">{{ $rayon->rayon }}</p>
                   </td>
                   <td>
                     <p class="text-xs font-weight-bold mb-0 ps-2">{{ $rayon->pembimbing_rayon }}</p>
