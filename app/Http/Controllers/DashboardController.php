@@ -18,11 +18,12 @@ class DashboardController extends Controller
 
         if(auth('students')->check()) {
             $alreadyAbsen = Absen::select('*')
-            ->where('nis', '=', auth('students')->user()->nis)
-            ->whereDate('created_at', '=', Carbon::today()->toDateString())
+            ->where('nis', auth('students')->user()->nis)
+            ->where('tanggal', Carbon::today()->toDateString())
             ->get();
 
-            $jam = Absen::where('nis', '=', auth('students')->user()->nis)->get();
+            $jam = Absen::where('nis', auth('students')->user()->nis)
+                        ->where('tanggal', Carbon::today()->toDateString())->get();
 
             return view('dashboard.index', [
                 'title' => 'Dashboard',
@@ -32,6 +33,7 @@ class DashboardController extends Controller
                 'totalRombel' => count(Rombel::all()),
                 'totalRayon' => count(Rayon::all()),
                 'alreadyAbsen' => count($alreadyAbsen),
+                'absen' => Absen::where('nis', auth('students')->user()->nis)->where('tanggal', Carbon::today()->toDateString())->get(),
                 'jam' => $jam
             ]);
         }

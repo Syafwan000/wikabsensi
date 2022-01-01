@@ -45,6 +45,7 @@ Route::middleware('auth:admins,students')->group(function () {
 
 Route::middleware('auth:admins')->group(function () {
     // Admin
+    Route::resource('/dashboard/admin/absen', AbsenAdminController::class);
     Route::resource('/dashboard/admin/rombel', RombelAdminController::class);
     Route::resource('/dashboard/admin/rayon', RayonAdminController::class);
     Route::resource('/dashboard/admin/register-siswa', RegisterStudentController::class);
@@ -56,8 +57,11 @@ Route::middleware('auth:students')->group(function () {
     // Students
     Route::get('/dashboard/rombel', [RombelController::class, 'index']);
     Route::get('/dashboard/rayon', [RayonController::class, 'index']);
-    Route::get('/dashboard/absen/tidak-hadir', [AbsenController::class, 'indexTidakHadir']);
+    
+    // Absen
+    Route::get('/dashboard/absen', [AbsenController::class, 'index']);
     Route::get('/absen-kepulangan', [AbsenController::class, 'storeAbsenKepulangan']);
     Route::post('/absen-hadir', [AbsenController::class, 'storeAbsenHadir']);
+    Route::get('/dashboard/absen/tidak-hadir', [AbsenController::class, 'indexTidakHadir']);
     Route::post('/dashboard/absen/tidak-hadir', [AbsenController::class, 'addTidakHadir']);
 });

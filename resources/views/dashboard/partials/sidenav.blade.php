@@ -32,6 +32,16 @@
             </span>
           </a>
         </li>
+        @if(Auth::guard('students')->check())
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/absen') ? 'active' : '' }}" href="/dashboard/absen">
+            <span class="shape-icon">
+              <i class="fas fa-history"></i>
+            </span>
+            <span class="nav-link-text ms-1">Semua Absen</span>
+          </a>
+        </li>
+        @endif
 
         @if(Auth::guard('students')->check())
 
@@ -63,6 +73,14 @@
 
           <li class="nav-item mt-3">
             <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Admin</h6>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/admin/absen*') ? 'active' : '' }}" href="/dashboard/admin/absen">
+              <span class="shape-icon">
+                <i class="fas fa-clipboard"></i>
+              </span>
+              <span class="nav-link-text ms-1">Absen (Admin)</span>
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/admin/rombel*') ? 'active' : '' }}" href="/dashboard/admin/rombel">

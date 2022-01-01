@@ -154,13 +154,33 @@
 <div class="container-fluid pb-5">
   <div class="card">
       <div class="card-body p-5">
-        <h5 class="text-center mb-3"><i class="fas fa-plane-arrival"></i>&nbsp;&nbsp;Jam Kedatangan {{ $jam[0]['jam_kedatangan'] }}</h5>
-        @if($jam[0]['jam_kepulangan'] !== '00:00:00')
-          <h5 class="text-center mb-3"><i class="fas fa-plane-departure"></i>&nbsp;&nbsp;Jam Kepulangan {{ $jam[0]['jam_kepulangan'] }}</h5>
+        @if($absen[0]['keterangan'] == 'Hadir')
+          <h4 class="text-center mb-4">Anda dinyatakan <span class="bg-gradient-success text-white text-sm px-3 py-2 rounded">Hadir</span></h4>
+          <h5 class="text-center mb-3"><i class="fas fa-plane-arrival"></i>&nbsp;&nbsp;Jam Kedatangan {{ $jam[0]['jam_kedatangan'] }}</h5>
+          @if($jam[0]['jam_kepulangan'] !== '00:00:00')
+            <h5 class="text-center mb-3"><i class="fas fa-plane-departure"></i>&nbsp;&nbsp;Jam Kepulangan {{ $jam[0]['jam_kepulangan'] }}</h5>
+            <div class="d-flex justify-content-center">
+              <a class="btn bg-gradient-info m-0 mt-2" href="/dashboard/absen">Lihat Semua Absen</a>
+            </div>
+          @else
+            <div class="container d-flex justify-content-center">
+              <a href="/absen-kepulangan" class="btn bg-gradient-warning p-3 mb-0">Pulang</a>
+            </div>
+          @endif
         @else
-          <div class="container d-flex justify-content-center">
-            <a href="/absen-kepulangan" class="btn bg-gradient-warning p-3 mb-0">Pulang</a>
-          </div>
+          <h4 class="text-center m-0">Anda Berhalangan Hadir Karena
+            @if($absen[0]['keterangan'] == 'Izin')
+              <span class="bg-gradient-info text-white text-sm px-3 py-2 rounded">Izin</span>
+              <div class="d-flex justify-content-center">
+                <a class="btn bg-gradient-info m-0 mt-3" href="/dashboard/absen">Lihat Semua Absen</a>
+              </div>
+            @elseif($absen[0]['keterangan'] == 'Sakit')
+              <span class="bg-gradient-warning text-white text-sm px-3 py-2 rounded">Sakit</span>
+              <div class="d-flex justify-content-center">
+                <a class="btn bg-gradient-info m-0 mt-3" href="/dashboard/absen">Lihat Semua Absen</a>
+              </div>
+            @endif
+          </h4>
         @endif
       </div>
   </div>
@@ -209,8 +229,8 @@
           <input type="hidden" name="nis" value="{{ Auth::guard('students')->user()->nis }}">
           <input type="hidden" name="jam_kedatangan">
           <input type="hidden" name="jam_kepulangan" value="00:00:00">
+          <input type="hidden" name="tanggal">
           <input type="hidden" name="keterangan" value="Hadir">
-          <input type="hidden" name="image">
           <button type="submit" class="btn bg-gradient-success">Hadir</button>
         </form>
       </div>

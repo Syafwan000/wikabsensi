@@ -18,6 +18,7 @@ class CreateAbsensTable extends Migration
             $table->string('nis', 8);
             $table->string('jam_kedatangan');
             $table->string('jam_kepulangan')->nullable();
+            $table->string('tanggal')->nullable();
             $table->string('keterangan');
             $table->string('image')->nullable();
             $table->timestamps();
