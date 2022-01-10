@@ -26,7 +26,10 @@ span.title-brand {
 }
 
 .nav-link {
-    color: var(--fifth-color) !important;
+    background-color: #1A3867;
+    color: var(--fourth-color) !important;
+    padding: 8px;
+    border-radius: .5rem;
     font-weight: 500;
     margin-left: 20px !important;
 }
@@ -69,3 +72,12 @@ span.title-brand {
 }
 
 /* Akhir Konten */
+
+/* Footer */
+
+footer {
+    background-color: #1A3867;
+    color: var(--fourth-color);
+}
+
+/* Akhir Footer */

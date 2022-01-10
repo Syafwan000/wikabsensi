@@ -25,12 +25,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#tentang">Tentang</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Fitur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Info</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -86,14 +80,20 @@
     <div class="container-fluid about">
         <div class="container content-about">
             <h2 class="text-center mb-4">Tentang</h2>
-            <p class="m-0 px-5 mb-5 text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum rem sed expedita tempora officia accusamus iusto odit sunt labore asperiores quia, maiores harum modi itaque amet. Tenetur facere quisquam, maiores repellat blanditiis explicabo excepturi fugit adipisci libero debitis sint eligendi necessitatibus, accusantium iure quo doloribus eaque, voluptatibus perferendis distinctio quibusdam.</p>
+            <p class="m-0 px-5 mb-5 text-center text-about">WikAbsensi adalah layanan absensi bagi siswa siswi yang bersekolah di SMK Wikrama Bogor, penggunaannya sangat mudah dan praktis. Siswa/i hanya mengisi data kehadiran yang sudah disediakan</p>
             <div class="content-about-image mb-5 d-flex justify-content-center">
                 <img src="{{ asset('image/logo-wk.png') }}">
             </div>
-            <p class="text-center">- Absensi SMK Wikrama Bogor -</p>
+            <p class="text-center"><strong>- WikAbsensi SMK Wikrama Bogor -</strong></p>
         </div>
     </div>
 </section>
+
+<footer>
+    <div class="container text-center">
+        <p class="py-4 m-0">Made with 💖 by Muhammad Syafwan Ardiansyah | RPL XI-3</p>
+    </div>
+</footer>
 
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
