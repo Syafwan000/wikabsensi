@@ -78,6 +78,7 @@ span.title-brand {
 footer {
     background-color: #1A3867;
     color: var(--fourth-color);
+    font-size: 14px;
 }
 
 /* Akhir Footer */
