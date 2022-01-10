@@ -11,6 +11,10 @@
 </head>
 <body>
 
+@if(auth('admins')->check() || auth('students')->check())
+    <script>window.location = '/dashboard'</script>
+@endif
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="#">
