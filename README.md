@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="#">WikAbsensi</a>
+    <a href="wikabsensi.herokuapp.com/">WikAbsensi</a>
 </h1>
 
 <img src="public/image/demo1.gif">
