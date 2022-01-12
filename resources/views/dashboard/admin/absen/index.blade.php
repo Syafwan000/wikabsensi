@@ -4,7 +4,7 @@
     
 @include('dashboard.partials.navbar')
 
-<div class="container mt-3">
+<div class="container-fluid mt-3">
     <a href="/dashboard/admin/absen" class="btn bg-gradient-info mb-3">Kembali</a>
     <div class="card p-2 px-4 mb-4">
         <h4 class="my-3">Detail Absen</h4>

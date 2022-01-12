@@ -2,9 +2,15 @@
 
 @section('content')
 
+<div class="container-fluid mt-3 text-end side-nav">
+    <a href="javascript:;" class="p-0" id="iconNavbarSidenav">
+      <i class="fas fa-th-large"></i>
+    </a>
+</div>
+
 @if(Auth::guard('admins')->check())
 
-<div class="container my-4">
+<div class="container-fluid my-4">
     <div class="card p-2 px-4">
         <h4 class="my-3">Profile</h4>
         <div class="wrap">
@@ -58,7 +64,7 @@
 
 @elseif(Auth::guard('students')->check())
 
-<div class="container my-4">
+<div class="container-fluid my-4">
     <div class="card p-2 px-4">
         <h4 class="my-3">Profile</h4>
         <div class="wrap">

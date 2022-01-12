@@ -28,11 +28,11 @@
             </li>
           </ol>
         </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-0" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
           </div>
           <ul class="navbar-nav justify-content-end">
-            <li class="nav-item px-3 d-flex align-items-center">
+            <li class="nav-item">
               <a class="nav-link text-body p-0">
                 <i class="fas fa-calendar-day fixed-plugin-button-nav cursor-pointer"></i>&nbsp;&nbsp;
                 <b>{{ $date }}</b>
@@ -42,3 +42,9 @@
         </div>
     </div>
 </nav>
+
+<div class="container-fluid text-end me-4 side-nav">
+  <a href="javascript:;" class="p-0" id="iconNavbarSidenav">
+    <i class="fas fa-th-large"></i>
+  </a>
+</div>

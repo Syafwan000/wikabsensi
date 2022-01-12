@@ -4,7 +4,7 @@
     
 @include('dashboard.partials.navbar')
 
-<div class="container mt-3">
+<div class="container-fluid mt-3">
   <a href="/dashboard/admin/register-admin/create" class="btn bg-gradient-success mb-4">Buat Akun (Admin)</a>
   <form action="/dashboard/admin/register-admin">
     <div class="input-group mb-3">

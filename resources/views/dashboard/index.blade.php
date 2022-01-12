@@ -2,8 +2,14 @@
 
 @section('content')
 
+<div class="container-fluid mt-3 text-end side-nav">
+  <a href="javascript:;" class="p-0" id="iconNavbarSidenav">
+    <i class="fas fa-th-large"></i>
+  </a>
+</div>
+
 <div class="container-fluid">
-    <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url({{ asset('image/gedung-wikrama.jpg') }}); background-position-y: 50%;">
+    <div class="page-header min-height-300 border-radius-xl mt-3" style="background-image: url({{ asset('image/gedung-wikrama.jpg') }}); background-position-y: 50%;">
       <span class="mask bg-gradient-info opacity-6"></span>
     </div>
     <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">

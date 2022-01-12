@@ -4,7 +4,7 @@
     
 @include('dashboard.partials.navbar')
 
-<div class="container mt-3">
+<div class="container-fluid mt-3">
     <h4 class="m-0">Rayon ({{ $students[0]['rayon'] }})</h4>
     <p class="m-0 text-bold">{{ $rayons[0]['pembimbing_rayon'] }}</p>
     <p class="text-sm">Total {{ $total_students }} Siswa di {{ $students[0]['rayon'] }}</p>

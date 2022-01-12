@@ -4,7 +4,7 @@
     
 @include('dashboard.partials.navbar')
 
-<div class="container mt-3">
+<div class="container-fluid mt-3">
     <h4 class="mb-3">Absensi ({{ auth('students')->user()->nama }})</h4>
       <div class="card mb-4">
           <div class="table-responsive">

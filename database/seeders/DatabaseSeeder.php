@@ -22,20 +22,20 @@ class DatabaseSeeder extends Seeder
         // Admin
         Admin::factory(5)->create();
         Admin::create([
-            'nama' => 'Muhammad Syafwan Ardiansyah',
-            'username' => 'syafwan000',
-            'password' => bcrypt('12345')
+            'nama' => 'Maman Resing',
+            'username' => 'ngab01',
+            'password' => bcrypt('password')
         ]);
 
         // Student
-        Student::factory(120)->create();
+        Student::factory(10)->create();
         Student::create([
             'nis' => '12008020',
-            'nama' => 'Muhammad Syafwan Ardiansyah',
+            'nama' => 'Budi Repsol',
             'rombel' => 'RPL XI-3',
             'rayon' => 'Wikrama 4',
-            'username' => 'syafard',
-            'password' => bcrypt('12345')
+            'username' => 'ngab02',
+            'password' => bcrypt('password')
         ]);
 
         // Rombel

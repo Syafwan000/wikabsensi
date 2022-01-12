@@ -4,7 +4,7 @@
     
 @include('dashboard.partials.navbar')
 
-<div class="container mt-3">
+<div class="container-fluid mt-3">
     <form action="/dashboard/admin/absen">
       <div class="input-group mb-3">
         <input type="text" class="form-control" name="pencarian_absen" placeholder="Cari Absen" autocomplete="off">

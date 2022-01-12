@@ -6,6 +6,10 @@
     --fifth-color: #435998;
 }
 
+.side-nav {
+    display: none;
+}
+
 .shape-icon {
     padding: 10px;
     padding-top: 5px;
@@ -42,4 +46,10 @@
 
 .nav-item.register-cursor {
     cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .side-nav {
+        display: block;
+    }
 }

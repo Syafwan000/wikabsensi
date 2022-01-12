@@ -82,3 +82,27 @@ footer {
 }
 
 /* Akhir Footer */
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    a.nav-link {
+        margin-top: 14px;
+        padding-left: 12px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    img.illustration {
+        display: none; 
+    }
+}
+
+@media (max-width: 640px) {
+    .responsive-login {
+        padding-left: 20px;
+        padding-right: 40px;
+    }
+}
+
+/* Akhir Responsive */

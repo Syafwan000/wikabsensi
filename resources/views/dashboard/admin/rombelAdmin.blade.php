@@ -4,7 +4,7 @@
     
 @include('dashboard.partials.navbar')
 
-<div class="container mt-3">
+<div class="container-fluid mt-3">
     <a href="/dashboard/admin/rombel/create" class="btn bg-gradient-success mb-4">Buat Rombel</a>
     <form action="/dashboard/admin/rombel">
       <div class="input-group mb-3">
